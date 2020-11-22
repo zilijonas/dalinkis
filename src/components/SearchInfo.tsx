@@ -1,7 +1,7 @@
-import React from "react";
-import { Box, Typography } from "@material-ui/core";
-import { useRecoilValue } from "recoil";
-import { searchCategory, searchCity, searchKey } from "../search/search-state";
+import React from 'react';
+import { Box, Typography } from '@material-ui/core';
+import { useRecoilValue } from 'recoil';
+import { searchCategory, searchCity, searchKey } from '../search/search-state';
 
 interface Props {}
 

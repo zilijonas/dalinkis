@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, selector } from 'recoil';
 
 export interface SearchState {
   key: string;
@@ -7,16 +7,16 @@ export interface SearchState {
 }
 
 export const searchState = atom<SearchState>({
-  key: "searchState",
+  key: 'searchState',
   default: {
-    key: "",
-    category: "",
-    city: "",
+    key: '',
+    category: '',
+    city: '',
   },
 });
 
 export const searchKey = selector<string>({
-  key: "searchKeyState",
+  key: 'searchKeyState',
   get: ({ get }) => {
     const state = get(searchState);
     return state.key;
@@ -24,17 +24,17 @@ export const searchKey = selector<string>({
 });
 
 export const searchCategory = selector<string>({
-  key: "searchCategoryState",
+  key: 'searchCategoryState',
   get: ({ get }) => {
     const state = get(searchState);
-    return state.category || "Not selected";
+    return state.category || 'Not selected';
   },
 });
 
 export const searchCity = selector<string>({
-  key: "searchCityState",
+  key: 'searchCityState',
   get: ({ get }) => {
     const state = get(searchState);
-    return state.city || "Not selected";
+    return state.city || 'Not selected';
   },
 });

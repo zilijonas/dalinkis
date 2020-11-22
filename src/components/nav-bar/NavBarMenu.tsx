@@ -1,5 +1,5 @@
-import React from "react";
-import { Menu, MenuItem } from "@material-ui/core";
+import React from 'react';
+import { Menu, MenuItem } from '@material-ui/core';
 
 interface Props {
   id: string;
@@ -14,12 +14,11 @@ export const NavBarMenu: React.FC<Props> = ({ id, anchorElement, onMenuClosed })
     <Menu
       id={id}
       anchorEl={anchorElement}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
-      onClose={onMenuClosed}
-    >
+      onClose={onMenuClosed}>
       <MenuItem onClick={onMenuClosed}>Profile</MenuItem>
       <MenuItem onClick={onMenuClosed}>My account</MenuItem>
     </Menu>

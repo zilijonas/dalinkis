@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   createStyles,
@@ -11,23 +11,23 @@ import {
   MenuItem,
   Select,
   withStyles,
-} from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import { SearchState } from "../../search/search-state";
+} from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
+import { SearchState } from '../../search/search-state';
 
 interface Props {
   onSearchUpdated(state: SearchState): void;
 }
 
-const mockedCategoryOptions = ["TV", "Computer", "Sports"];
+const mockedCategoryOptions = ['TV', 'Computer', 'Sports'];
 
-const mockedCityOptions = ["Vilnius", "Kaunas", "Klaipeda"];
+const mockedCityOptions = ['Vilnius', 'Kaunas', 'Klaipeda'];
 
 export const NavBarSearchInput: React.FC<Props> = ({ onSearchUpdated }) => {
   const classes = useStyles();
-  const [key, setKey] = React.useState<string>("");
-  const [selectedCategory, setSelectedCategory] = React.useState<string>("");
-  const [selectedCity, setSelectedCity] = React.useState<string>("");
+  const [key, setKey] = React.useState<string>('');
+  const [selectedCategory, setSelectedCategory] = React.useState<string>('');
+  const [selectedCity, setSelectedCity] = React.useState<string>('');
 
   React.useEffect(() => {
     onSearchUpdated({ key, category: selectedCategory, city: selectedCity });
@@ -42,30 +42,26 @@ export const NavBarSearchInput: React.FC<Props> = ({ onSearchUpdated }) => {
           root: classes.inputRoot,
           input: classes.inputInput,
         }}
-        inputProps={{ "aria-label": "search" }}
+        inputProps={{ 'aria-label': 'search' }}
         onChange={handleKeyChange}
         renderSuffix={() => (
           <Box display="flex" alignItems="center">
             <FormControl className={classes.formControl}>
-              <InputLabel
-                htmlFor="category-select"
-                classes={{ root: classes.labelRoot, shrink: classes.labelShrink }}
-              >
+              <InputLabel htmlFor="category-select" classes={{ root: classes.labelRoot, shrink: classes.labelShrink }}>
                 Category
               </InputLabel>
               <Select
-                className={classes.select}
+                classes={{ root: classes.select }}
                 value={selectedCategory}
                 name="category-select"
                 id="category-select"
                 onChange={handleCategoryChange}
-                inputProps={{ "aria-label": "categories" }}
-                input={<BootstrapInput />}
-              >
+                inputProps={{ 'aria-label': 'categories' }}
+                input={<BootstrapInput />}>
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                {mockedCategoryOptions.map((opt) => (
+                {mockedCategoryOptions.map(opt => (
                   <MenuItem key={opt} value={opt}>
                     {opt}
                   </MenuItem>
@@ -73,10 +69,7 @@ export const NavBarSearchInput: React.FC<Props> = ({ onSearchUpdated }) => {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
-              <InputLabel
-                htmlFor="city-select"
-                classes={{ root: classes.labelRoot, shrink: classes.labelShrink }}
-              >
+              <InputLabel htmlFor="city-select" classes={{ root: classes.labelRoot, shrink: classes.labelShrink }}>
                 City
               </InputLabel>
               <Select
@@ -85,13 +78,12 @@ export const NavBarSearchInput: React.FC<Props> = ({ onSearchUpdated }) => {
                 name="city-select"
                 id="city-select"
                 onChange={handleCityChange}
-                inputProps={{ "aria-label": "categories" }}
-                input={<BootstrapInput />}
-              >
+                inputProps={{ 'aria-label': 'categories' }}
+                input={<BootstrapInput />}>
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                {mockedCityOptions.map((opt) => (
+                {mockedCityOptions.map(opt => (
                   <MenuItem key={opt} value={opt}>
                     {opt}
                   </MenuItem>
@@ -126,47 +118,47 @@ export const NavBarSearchInput: React.FC<Props> = ({ onSearchUpdated }) => {
 const BootstrapInput = withStyles(() =>
   createStyles({
     input: {
-      position: "relative",
+      position: 'relative',
       fontSize: 16,
       padding: 0,
       margin: 0,
     },
-  })
+  }),
 )(InputBase);
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     search: {
       flexGrow: 1,
-      position: "relative",
+      position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.background.paper, 0.85),
-      "&:hover": {
+      '&:hover': {
         backgroundColor: theme.palette.background.paper,
       },
       marginRight: theme.spacing(2),
       marginLeft: 0,
-      width: "100%",
+      width: '100%',
       color: theme.palette.primary.main,
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(3),
-        width: "auto",
+        width: 'auto',
       },
     },
     inputRoot: {
-      width: "100%",
+      width: '100%',
       flexGrow: 1,
-      color: "inherit",
+      color: 'inherit',
       padding: theme.spacing(0, 1, 0, 2),
     },
     inputInput: {
       flexGrow: 1,
       padding: theme.spacing(1),
-      textOverflow: "ellipsis",
-      transition: theme.transitions.create("width"),
-      width: "100%",
+      textOverflow: 'ellipsis',
+      transition: theme.transitions.create('width'),
+      width: '100%',
 
-      "&::placeholder": {
+      '&::placeholder': {
         color: theme.palette.primary.main,
         opacity: 0.75,
       },
@@ -174,26 +166,26 @@ const useStyles = makeStyles((theme) =>
     formControl: {
       margin: theme.spacing(0, 1, 0),
       width: 180,
-      backgroundColor: "transparent !important",
-      [theme.breakpoints.down("sm")]: {
+      backgroundColor: 'transparent !important',
+      [theme.breakpoints.down('sm')]: {
         width: 140,
       },
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down('xs')]: {
         width: 80,
       },
     },
     select: {
-      textOverflow: "ellipsis",
+      textOverflow: 'ellipsis',
       color: theme.palette.primary.main,
       marginTop: theme.spacing(0),
-      background: "none !important",
+      background: 'none !important',
     },
     labelRoot: {
       marginTop: theme.spacing(0),
-      transform: "translate(0, 1px) scale(1)",
+      transform: 'translate(0, 1px) scale(1)',
     },
     labelShrink: {
-      transform: "translate(0, 1px) scale(0, 1)",
+      transform: 'translate(0, 1px) scale(0, 1)',
     },
-  })
+  }),
 );

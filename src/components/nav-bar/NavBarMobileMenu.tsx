@@ -1,8 +1,8 @@
-import React from "react";
-import { Badge, IconButton, Menu, MenuItem } from "@material-ui/core";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import React from 'react';
+import { Badge, IconButton, Menu, MenuItem } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MailIcon from '@material-ui/icons/Mail';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 interface Props {
   id: string;
@@ -18,12 +18,11 @@ export const NavBarMobileMenu: React.FC<Props> = ({ id, anchorElement, onMenuClo
     <Menu
       id={id}
       anchorEl={anchorElement}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMenuOpen}
-      onClose={onMenuClosed}
-    >
+      onClose={onMenuClosed}>
       <MenuItem>
         <IconButton aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="secondary">
@@ -45,8 +44,7 @@ export const NavBarMobileMenu: React.FC<Props> = ({ id, anchorElement, onMenuClo
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
-        >
+          color="inherit">
           <AccountCircleIcon />
         </IconButton>
         <p>Profile</p>

@@ -1,16 +1,16 @@
-import React from "react";
-import { AppBar, Badge, createStyles, IconButton, makeStyles, Toolbar, Typography } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import HelpIcon from "@material-ui/icons/Help";
-import LoopIcon from "@material-ui/icons/Loop";
-import { NavBarMenu } from "./NavBarMenu";
-import { NavBarMobileMenu } from "./NavBarMobileMenu";
-import { NavBarSearchInput } from "./NavBarSearchInput";
-import { useRecoilState } from "recoil";
-import { searchState } from "../../search/search-state";
+import React from 'react';
+import { AppBar, Badge, createStyles, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MailIcon from '@material-ui/icons/Mail';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import HelpIcon from '@material-ui/icons/Help';
+import LoopIcon from '@material-ui/icons/Loop';
+import { NavBarMenu } from './NavBarMenu';
+import { NavBarMobileMenu } from './NavBarMobileMenu';
+import { NavBarSearchInput } from './NavBarSearchInput';
+import { useRecoilState } from 'recoil';
+import { searchState } from '../../search/search-state';
 
 export const NavBar: React.FC = () => {
   const classes = useStyles();
@@ -18,8 +18,8 @@ export const NavBar: React.FC = () => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
   const [, setSearch] = useRecoilState(searchState);
 
-  const menuId = "primary-search-account-menu";
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const menuId = 'primary-search-account-menu';
+  const mobileMenuId = 'primary-search-account-menu-mobile';
 
   return (
     <div className={classes.grow}>
@@ -51,8 +51,7 @@ export const NavBar: React.FC = () => {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
               <AccountCircleIcon />
             </IconButton>
           </div>
@@ -62,8 +61,7 @@ export const NavBar: React.FC = () => {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
               <MenuIcon />
             </IconButton>
           </div>
@@ -97,7 +95,7 @@ export const NavBar: React.FC = () => {
   }
 };
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     grow: {
       flexGrow: 1,
@@ -106,30 +104,30 @@ const useStyles = makeStyles((theme) =>
       marginRight: theme.spacing(2),
     },
     logo: {
-      display: "none",
-      [theme.breakpoints.up("sm")]: {
-        display: "block",
+      display: 'none',
+      [theme.breakpoints.up('sm')]: {
+        display: 'block',
       },
     },
     title: {
       flexGrow: 1,
-      display: "none",
+      display: 'none',
       marginLeft: theme.spacing(1),
-      [theme.breakpoints.up("md")]: {
-        display: "block",
+      [theme.breakpoints.up('md')]: {
+        display: 'block',
       },
     },
     sectionDesktop: {
-      display: "none",
-      [theme.breakpoints.up("md")]: {
-        display: "flex",
+      display: 'none',
+      [theme.breakpoints.up('md')]: {
+        display: 'flex',
       },
     },
     sectionMobile: {
-      display: "flex",
-      [theme.breakpoints.up("md")]: {
-        display: "none",
+      display: 'flex',
+      [theme.breakpoints.up('md')]: {
+        display: 'none',
       },
     },
-  })
+  }),
 );
