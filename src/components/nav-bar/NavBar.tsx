@@ -5,6 +5,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import HelpIcon from "@material-ui/icons/Help";
+import LoopIcon from "@material-ui/icons/Loop";
 import { NavBarMenu } from "./NavBarMenu";
 import { NavBarMobileMenu } from "./NavBarMobileMenu";
 import { NavBarSearchInput } from "./NavBarSearchInput";
@@ -24,7 +25,8 @@ export const NavBar: React.FC = () => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <LoopIcon className={classes.logo} />
+          <Typography className={classes.title} variant="h5" noWrap>
             Dalinkis
           </Typography>
           <NavBarSearchInput onSearchUpdated={setSearch} />
@@ -103,9 +105,16 @@ const useStyles = makeStyles((theme) =>
     menuButton: {
       marginRight: theme.spacing(2),
     },
+    logo: {
+      display: "none",
+      [theme.breakpoints.up("sm")]: {
+        display: "block",
+      },
+    },
     title: {
       flexGrow: 1,
       display: "none",
+      marginLeft: theme.spacing(1),
       [theme.breakpoints.up("md")]: {
         display: "block",
       },
